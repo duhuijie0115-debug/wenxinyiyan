@@ -1,0 +1,2 @@
+# Chromium runs as the app user inside the isolated desktop container.
+CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-sandbox --disable-gpu"

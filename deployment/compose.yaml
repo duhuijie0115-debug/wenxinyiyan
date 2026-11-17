@@ -1,0 +1,26 @@
+name: wenxinyiyan
+services:
+  wenxinyiyan:
+    image: wenxinyiyan:5.6.2
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: wenxinyiyan
+    restart: unless-stopped
+    init: true
+    shm_size: 512m
+    mem_limit: 4g
+    cpus: 2
+    ports:
+      - "${WENXINYIYAN_BIND_IP:?Set LAN IP in .env}:${WENXINYIYAN_API_PORT:-18080}:18080"
+      - "127.0.0.1:${WENXINYIYAN_DESKTOP_PORT:-16080}:6080"
+    volumes:
+      - ../data:/home/app
+      - ../.wenxinyiyan-api-key:/run/secrets/wenxinyiyan-api-key:ro
+    environment:
+      TZ: Asia/Shanghai
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

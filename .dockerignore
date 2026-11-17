@@ -1,0 +1,15 @@
+**
+!requirements.txt
+!requirements.lock.txt
+!workbuddy_optimizer.py
+!workbuddy_transport.py
+!optimizer_service.py
+!config/
+!config/request-template.json
+!deployment/
+!deployment/Dockerfile
+!deployment/supervisord.conf
+!deployment/entrypoint.sh
+!deployment/chromium-container
+!deployment/downloads/
+!deployment/downloads/WorkBuddy.deb
