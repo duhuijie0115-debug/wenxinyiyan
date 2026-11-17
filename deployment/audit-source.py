@@ -25,7 +25,7 @@ def main():
         if path.exists():
             known_keys.append(path.read_bytes().strip())
     forbidden = ('capture/', 'inspection/', 'official-research/', 'desktop/state/',
-                 'desktop/runtime/', 'data/', '.venv/', 'deployment/tools/', 'deployment/downloads/')
+                 'desktop/runtime/', 'data/', 'migration-backup/', '.venv/', 'deployment/tools/', 'deployment/downloads/')
     for name in files:
         if name.startswith(forbidden) or name in ('.env', '.wenxinyiyan-api-key', '.optimizer-api-key', 'desktop/settings.json'):
             failures.append(f'private/generated file tracked: {name}')
